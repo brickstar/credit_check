@@ -1,6 +1,6 @@
 class CreditCheck
 
-  def initialize(card_number)
+  def initialize(card_number = 0)
     @card_number = card_number
   end
 
@@ -15,13 +15,14 @@ class CreditCheck
   end
 
   def sum_greater_than_ten(array)
-    array.map.with_index do |num, index|
+    results = array.map.with_index do |num, index|
       if num > 9
         num - 9
       else
         num
       end
-    end.sum
+    end
+    @card_number = results.sum
   end
 
 end
