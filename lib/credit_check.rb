@@ -19,5 +19,9 @@ class CreditCheck
       end
     end
   end
-  
+
+  def sum_results
+    
+  end
+
 end
