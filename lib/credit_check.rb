@@ -1,5 +1,9 @@
 class CreditCheck
 
+  def initialize(card_number)
+    @card_number = card_number
+  end
+
   def two_times(array)
     array.map.with_index do |num, index|
       if index % 2 == 1
@@ -12,16 +16,12 @@ class CreditCheck
 
   def sum_greater_than_ten(array)
     array.map.with_index do |num, index|
-      if num > 10
-        (num - 10) + 1
+      if num > 9
+        num - 9
       else
         num
       end
-    end
-  end
-
-  def sum_results
-    
+    end.sum
   end
 
 end
