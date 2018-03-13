@@ -9,4 +9,15 @@ class CreditCheck
       end
     end
   end
+
+  def sum_greater_than_ten(array)
+    array.map.with_index do |num, index|
+      if num > 10
+        (num - 10) + 1
+      else
+        num
+      end
+    end
+  end
+  
 end

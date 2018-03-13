@@ -16,4 +16,10 @@ class CreditCheckTest < Minitest::Test
 
     assert_equal [7, 18, 9, 4, 7, 6, 9, 16, 7, 2], cc.two_times([7, 9, 9, 2, 7, 3, 9, 8, 7, 1])
   end
+
+  def test_sum_greater_than_ten
+    cc = CreditCheck.new
+
+    assert_equal [7, 9, 9, 4, 7, 6, 9, 7, 7, 2], cc.sum_greater_than_ten([7, 18, 9, 4, 7, 6, 9, 16, 7, 2])
+  end
 end
