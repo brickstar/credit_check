@@ -39,11 +39,6 @@ class CreditCheck
     else
       "The number is invalid!"
     end
-    # Account identifier:    7   9   9   2   7   3   9   8   7   1   3
-    # 2x every other digit:  7   18  9   4   7   6   9   16  7   2   3
-    # Summed digits over 10: 7   9   9   4   7   6   9   7   7   2   3
-    # Results summed:        7   9   9   4   7   6   9   7   7   2   3 = 70
-    # valid if sum is evenly divisible by 10
   end
 
 end
