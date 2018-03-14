@@ -1,7 +1,7 @@
 class CreditCheck
   attr_reader :digits,
               :check_digit
-              
+
   def initialize(card_number)
     @digits = card_number.to_i.digits
     # @check_digit = @digits.pop
@@ -46,9 +46,5 @@ class CreditCheck
     # Results summed:        7   9   9   4   7   6   9   7   7   2   3 = 70
     # valid if sum is evenly divisible by 10
   end
-
-
-
-
-
+  
 end
