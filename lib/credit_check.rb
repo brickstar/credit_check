@@ -1,11 +1,13 @@
 class CreditCheck
+  attr_reader :digits,
+              :check_digit
 
-  def initialize(card_number = 0)
-    @card_number = card_number
+  def initialize(card_number)
+    @digits = card_number.to_i.digits
   end
 
-  def two_times(array)
-    array.map.with_index do |num, index|
+  def two_times_every_other_digit
+    @digits.map!.with_index do |num, index|
       if index % 2 == 1
         num * 2
       else
@@ -14,15 +16,29 @@ class CreditCheck
     end
   end
 
-  def sum_greater_than_ten(array)
-    results = array.map.with_index do |num, index|
+  def sum_digits_over_ten
+    @digits.map!.with_index do |num, index|
       if num > 9
         num - 9
       else
         num
       end
     end
-    @card_number = results.sum
+  end
+
+  def results_summed
+    @digits = @digits.sum
+  end
+
+  def validate
+    two_times_every_other_digit
+    sum_digits_over_ten
+    results_summed
+    if @digits % 10 == 0
+      "The number is valid!"
+    else
+      "The number is invalid!"
+    end
   end
 
 end
