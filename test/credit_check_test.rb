@@ -44,7 +44,31 @@ class CreditCheckTest < Minitest::Test
 
   def test_validate
     cc = CreditCheck.new("5541808923795240")
-# binding.pry
+
     assert_equal "The number is valid!", cc.validate
+  end
+
+  def test_valid_numbers
+    valid = ['5541808923795240', '4024007136512380', '6011797668867828']
+    expected = "The number is valid!"
+
+    valid.each { |card_number| assert_equal expected, CreditCheck.new(card_number).validate }
+  end
+
+  def test_returns_invalid
+    invalid = ['5541801923795240', '4024007106512380', '6011797668868728']
+    expected = "The number is invalid!"
+
+    invalid.each { |card_number| assert_equal expected, CreditCheck.new(card_number).validate }
+  end
+
+  def test_validate_amex
+    cc = CreditCheck.new('342804633855673')
+
+    assert_equal "The number is valid!", cc.validate
+
+    cc = CreditCheck.new('342801633855673')
+
+    assert_equal "The number is invalid!", cc.validate
   end
 end
