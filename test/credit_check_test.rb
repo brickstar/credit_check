@@ -17,11 +17,6 @@ class CreditCheckTest < Minitest::Test
     assert_equal [0, 4, 2, 5, 9, 7, 3, 2, 9, 8, 0, 8, 1, 4, 5, 5], cc.digits
   end
 
-  # def test_check_digit
-  #   cc = CreditCheck.new("5541808923795240")
-  #
-  #   assert_equal 0, cc.check_digit
-  # end
 
   def test_two_times_every_other_digit
     cc = CreditCheck.new("5541808923795240")
@@ -36,8 +31,9 @@ class CreditCheckTest < Minitest::Test
   end
 
   def test_summed_results
-    skip
     cc = CreditCheck.new("5541808923795240")
+    cc.two_times_every_other_digit
+    cc.sum_digits_over_ten
 
     assert_equal 70, cc.results_summed
   end
