@@ -33,13 +33,16 @@ class CreditCheckTest < Minitest::Test
     expected = [0, 8, 2, 10, 9, 14, 3, 4, 9, 16, 0, 16, 1, 8, 5, 10]
     actual = cc.two_times_every_other_digit([0, 4, 2, 5, 9, 7, 3, 2, 9, 8, 0, 8, 1, 4, 5, 5])
 
-    assert_equal expected , actual
+    assert_equal expected, actual
   end
 
   def test_sum_digits_over_ten
     cc = CreditCheck.new("5541808923795240")
 
-    assert_equal [0, 8, 2, 1, 9, 5, 3, 4, 9, 7, 0, 7, 1, 8, 5, 1], cc.sum_digits_over_ten([0, 8, 2, 10, 9, 14, 3, 4, 9, 16, 0, 16, 1, 8, 5, 10])
+    expected = [0, 8, 2, 1, 9, 5, 3, 4, 9, 7, 0, 7, 1, 8, 5, 1]
+    actual = cc.sum_digits_over_ten([0, 8, 2, 10, 9, 14, 3, 4, 9, 16, 0, 16, 1, 8, 5, 10])
+
+    assert_equal expected, actual
   end
 
   def test_summed_results
@@ -58,7 +61,6 @@ class CreditCheckTest < Minitest::Test
   def test_returns_invalid
     cc = CreditCheck.new("5541801923795240")
 
-    expected = "The number 5541-8019-2379-5240 is invalid!"
 
     assert_equal "The number 5541-8019-2379-5240 is invalid!", cc.validate
   end
