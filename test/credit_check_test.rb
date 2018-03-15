@@ -54,15 +54,24 @@ class CreditCheckTest < Minitest::Test
 
   def test_valid_numbers
     cc = CreditCheck.new("5541808923795240")
-
     assert_equal "The number 5541-8089-2379-5240 is valid!", cc.validate
+
+    cc = CreditCheck.new("4024007136512380")
+    assert_equal "The number 4024-0071-3651-2380 is valid!", cc.validate
+
+    cc = CreditCheck.new("6011797668867828")
+    assert_equal "The number 6011-7976-6886-7828 is valid!", cc.validate
   end
 
-  def test_returns_invalid
+  def test_invalid
     cc = CreditCheck.new("5541801923795240")
-
-
     assert_equal "The number 5541-8019-2379-5240 is invalid!", cc.validate
+
+    cc = CreditCheck.new("4024007106512380")
+    assert_equal "The number 4024-0071-0651-2380 is invalid!", cc.validate
+
+    cc = CreditCheck.new("6011797668868728")
+    assert_equal "The number 6011-7976-6886-8728 is invalid!", cc.validate
   end
 
   def test_validate_amex
