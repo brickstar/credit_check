@@ -39,9 +39,9 @@ class CreditCheck
     array_3 = sum_digits_over_ten(array_2)
     result = results_summed(array_3)
     if result % 10 == 0
-      "The number <#{@card_number[0..3]}-#{@card_number[4..7]}-#{@card_number[8..11]}-#{@card_number[12..16]}> is valid!"
+      "The number #{@card_number[0..3]}-#{@card_number[4..7]}-#{@card_number[8..11]}-#{@card_number[12..15]} is valid!"
     else
-      "The number is invalid!"
+      "The number #{@card_number[0..3]}-#{@card_number[4..7]}-#{@card_number[8..11]}-#{@card_number[12..15]} is invalid!"
     end
   end
 
